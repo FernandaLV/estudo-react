@@ -19,7 +19,7 @@
 
             getInitialState: function(){
                 return {
-                        editing: false,
+                        editing: true,
                     };
             },
 
@@ -77,13 +77,14 @@
 
             getInitialState: function(){
                 return {
-                    comments: [
-                        'Name FeFa',
-                        'Age 27',
-                        'Sign Leon',
-                        'Birthday 01/08/92'
-                    ]
+                    comments: []
                 };
+            },
+
+            addComment: function (text) {
+                var stateComments = this.state.comments;
+                stateComments.push(text);
+                this.setState({comments: stateComments});
             },
 
             removeComment: function (index){
@@ -118,11 +119,23 @@
             },
 
             render: function(){
-                return (
-                    <div className="board">
-                        {this.state.comments.map(this.eachComment)}
-                    </div>
-                );
+                if (this.state.comments.length) {
+                    return (
+                        <div>
+                            <button className="button-info" onClick={this.addComment.bind(null, '')}>New Comment</button>
+                            <div className="board">
+                                {this.state.comments.map(this.eachComment)}
+                            </div>
+                        </div>
+                    );
+                }
+                else {
+                    return (
+                        <div>
+                            <button className="button-info" onClick={this.addComment.bind(null, '')}>New Comment</button>
+                        </div>
+                    );   
+                }
             }
         });
 
