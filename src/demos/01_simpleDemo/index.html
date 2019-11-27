@@ -9,7 +9,7 @@
     <script src="../../js/browser.min.js"></script>
 </head>
 <body>
-    <div id="example"></div>
+    <div id="example1"></div>
     <hr />
     <div id="example2"></div>
     <hr />
@@ -18,6 +18,37 @@
     <script type="text/babel">
 
 
+        // Example 1
+        // Using simple render
+        ReactDOM.render(
+            <h1>Olá FeFa</h1>,
+            document.getElementById("example1")
+        );
+
+        
+        // Example 2
+        // Creating component
+        var Text = React.createClass({
+            render: function(){
+                return(
+                    <div>
+                        <h3>Simple component</h3>
+                        <p>success</p>
+                    </div>
+                );
+            }
+        });
+
+        ReactDOM.render(
+            <div>
+                <Text />
+                <Text />
+                <Text />
+            </div>,
+            document.getElementById("example2")
+        );
+
+        // Example 3
         // Using property
         var Movie = React.createClass({
             render: function(){
@@ -38,36 +69,7 @@
             </div>,
             document.getElementById("example3")
         );
-
-/*
-        // Creating component
-        var Text = React.createClass({
-            render: function(){
-                return(
-                    <div>
-                        <h3>Simple component</h3>
-                        <p>success</p>
-                    </div>
-                );
-            }
-        });
-
-        
-        ReactDOM.render(
-            <div>
-                <Text />
-                <Text />
-                <Text />
-            </div>,
-            document.getElementById("example2")
-        );
-
-        // Using simple render
-        ReactDOM.render(
-            <h1>Olá FeFa</h1>,
-            document.getElementById("example")
-        );
-*/      
+     
     </script>
     
 </body>
